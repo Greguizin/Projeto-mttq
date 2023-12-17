@@ -38,7 +38,7 @@ try:
   client = client_connect()
 except OSError as e:
   restart_and_reconnect()
-
+    
 while True:
     try:
         lista_testes = []
@@ -49,15 +49,10 @@ while True:
                 valor_lido = ldrler()
                 teste = Leitura(valor_lido, cor)
                 lista_testes.append(teste)  
-                
                 print(teste.faixa, teste.cor)
-                
-    
             msg = '\n'.join(['A leitura no %s marcou: %d' % (teste.cor, teste.faixa) for teste in lista_testes])
             print (msg)
-            
             client.publish(topic_pub, msg.encode())
-            
             last_message = time.time()   
     except OSError as e:
         restart_and_reconnect()

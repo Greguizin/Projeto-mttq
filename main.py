@@ -1,5 +1,3 @@
-# Complete project details at https://RandomNerdTutorials.com
-
 class Leitura:
     def __init__(self, faixa, cor):
         self.faixa = faixa
@@ -44,7 +42,6 @@ except OSError as e:
 while True:
   try:
     if (time.time() - last_message) > message_interval:
-      # write on output topic
         for cor in cores:
             rgbcor(cor)
             time.sleep(5)

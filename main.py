@@ -40,18 +40,26 @@ except OSError as e:
   restart_and_reconnect()
 
 while True:
-  try:
-    if (time.time() - last_message) > message_interval:
-        for cor in cores:
-            rgbcor(cor)
-            time.sleep(5)
-            valor_lido = ldrler()
-            teste = Leitura(valor_lido, cor)
-            print(teste.faixa, teste.cor)
-            msg = b' a cor %s marcou : %d ' % (teste.cor, teste.faixa)
-            client.publish(topic_pub, msg)
-        last_message = time.time()  
-  except OSError as e:
+    try:
+        lista_testes = []
+        if (time.time() - last_message) > message_interval:
+            for cor in cores:
+                rgbcor(cor)
+                time.sleep(5)
+                valor_lido = ldrler()
+                teste = Leitura(valor_lido, cor)
+                lista_testes.append(teste)  
+                
+                print(teste.faixa, teste.cor)
+                
+    
+            msg = '\n'.join(['A leitura no %s marcou: %d' % (teste.cor, teste.faixa) for teste in lista_testes])
+            print (msg)
+            
+            client.publish(topic_pub, msg.encode())
+            
+            last_message = time.time()   
+    except OSError as e:
         restart_and_reconnect()
 
 

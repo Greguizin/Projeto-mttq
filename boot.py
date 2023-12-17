@@ -29,7 +29,6 @@ mqtt_password = conf["mqtt_password"]
 client_id = ubinascii.hexlify(machine.unique_id())
 topic_pub = b'test_mqtt/output'
  
-counter = 0 
 last_message = time.time()
 message_interval = 0.1 
 x = 0

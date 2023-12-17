@@ -1,0 +1,8 @@
+{
+    "ssid" : "brisa-1590546",
+    "password": "rrkila7d",
+    "mqtt_server": "test.mosquitto.org",
+    "server_port": 1883,
+    "mqtt_user": "",
+    "mqtt_password": ""
+}

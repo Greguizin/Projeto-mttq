@@ -50,8 +50,7 @@ while True:
             print(teste.faixa, teste.cor)
             msg = b' a cor %s marcou : %d ' % (teste.cor, teste.faixa)
             client.publish(topic_pub, msg)
-        last_message = time.time()
-        counter += message_interval    
+        last_message = time.time()  
   except OSError as e:
         restart_and_reconnect()
 

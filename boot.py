@@ -1,5 +1,3 @@
-# Complete project details at https://RandomNerdTutorials.com
-
 import time
 from umqttsimple import MQTTClient
 import ubinascii
@@ -31,7 +29,6 @@ mqtt_password = conf["mqtt_password"]
 client_id = ubinascii.hexlify(machine.unique_id())
 topic_pub = b'test_mqtt/output'
  
-# For the publish  topic 
 counter = 0 
 last_message = time.time()
 message_interval = 0.1 
